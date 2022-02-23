@@ -23,11 +23,12 @@ function Searchbar() {
         </form>
         <div
           style={{
+            width: "100%",
             height: " 100vh",
             overflowY: "auto",
           }}
         >
-          <h4 className="content-header">
+          <h4 className="content_header">
             Your Results <i className="fa fa-arrow-down mr-2 text-success"></i>
           </h4>
           <DisplayResult data="" />
