@@ -21,17 +21,20 @@ function Searchbar() {
             </div>
           </div>
         </form>
-        <h4
+        <div
           style={{
-            fontSize: "16px",
-            fontWeight: "600",
-            marginBottom: "10px",
-            marginTop: "20px",
+            height: " 100vh",
+            overflowY: "auto",
           }}
         >
-          Your Results <i className="fa fa-arrow-down mr-2 text-success"></i>
-        </h4>
-        <DisplayResult data="" />
+          <h4 className="content-header">
+            Your Results <i className="fa fa-arrow-down mr-2 text-success"></i>
+          </h4>
+          <DisplayResult data="" />
+          <DisplayResult data="" />
+          <DisplayResult data="" />
+          <DisplayResult data="" />
+        </div>
       </div>
     </section>
   );
