@@ -35,6 +35,7 @@ function Searchbar() {
           <DisplayResult data="" />
           <DisplayResult data="" />
           <DisplayResult data="" />
+          <DisplayResult data="" />
         </div>
       </div>
     </section>
