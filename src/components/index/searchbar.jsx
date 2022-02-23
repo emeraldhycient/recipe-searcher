@@ -29,7 +29,7 @@ function Searchbar() {
             marginTop: "20px",
           }}
         >
-          Your Results <i className="fa fa-arrow-down mr-2"></i>
+          Your Results <i className="fa fa-arrow-down mr-2 text-success"></i>
         </h4>
         <DisplayResult data="" />
       </div>
