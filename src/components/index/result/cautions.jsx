@@ -5,11 +5,9 @@ function Cautions({ data }) {
     <div className="ml-2">
       <h4 className="content_header">Cautions</h4>
       <div className="d-flex">
-        <span className="badge badge-info mr-1">Sulfites</span>
-        <span className="badge badge-info mr-1">Sulfites</span>
-        <span className="badge badge-info mr-1">Sulfites</span>
-        <span className="badge badge-info mr-1">Sulfites</span>
-        <span className="badge badge-info mr-1">Sulfites</span>
+        {data.map((item) => (
+          <span className="badge badge-info mr-1 my-1">{item}</span>
+        ))}
       </div>
     </div>
   );

@@ -1,16 +1,30 @@
 import React from "react";
 
-function Head({ img, label, url }) {
+function Head({ img, label, url, calories, cuisineType }) {
+  const handleSharing = async () => {
+    if (navigator.share) {
+      try {
+        await navigator
+          .share({
+            url,
+            title: label,
+            text: "shared from recipe searcher",
+          })
+          .then(() => alert("Hooray! Your content was shared to tha world"));
+      } catch (error) {
+        alert(`Oops! I couldn't share to the world because: ${error}`);
+      }
+    } else {
+      // fallback code
+      alert("Web share is currently not supported on this browser.");
+    }
+  };
+
   return (
     <div className="card">
       <div className="row">
         <div className="col-md-4">
-          <img
-            src={img}
-            alt=""
-            style={{ height: "100px", width: "100%" }}
-            className="rounded"
-          />
+          <img src={img} alt="" style={{ height: "100px", width: "100%" }} />
         </div>
         <div className="col-md-7">
           <div className="title d-flex align-items-center pt-3 ">
@@ -52,7 +66,7 @@ function Head({ img, label, url }) {
                 marginLeft: "5px",
               }}
             >
-              3033.2012500008163
+              {calories}
             </h5>
           </div>
           <div className="title d-flex align-items-center">
@@ -73,7 +87,7 @@ function Head({ img, label, url }) {
                 marginLeft: "5px",
               }}
             >
-              central europe
+              {cuisineType}
             </h5>
           </div>
         </div>
@@ -92,23 +106,7 @@ function Head({ img, label, url }) {
           >
             <i className="fa fa-copy" style={{ color: "#563d7c" }}></i>
           </h6>
-          <h6
-            onClick={() => {
-              if (navigator.share) {
-                navigator
-                  .share({
-                    title: "WebShare API Demo",
-                    url: "https://codepen.io/ayoisaiah/pen/YbNazJ",
-                  })
-                  .then(() => {
-                    alert("Thanks for sharing!");
-                  })
-                  .catch(console.error);
-              } else {
-                alert("browser doesnt support sharing directly");
-              }
-            }}
-          >
+          <h6 onClick={handleSharing}>
             <i className="fa fa-share" style={{ color: "#563d7c" }}></i>
           </h6>
           <h6>

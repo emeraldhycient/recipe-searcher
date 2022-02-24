@@ -25,20 +25,15 @@ function Digest({ data }) {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="content_body">Fat</td>
-              <td className="content_body">Fat</td>
-              <td className="content_body">fatContent</td>
-              <td className="content_body">274.4489059026023</td>
-              <td className="content_body">g</td>
-            </tr>
-            <tr>
-              <td className="content_body">Fat</td>
-              <td className="content_body">Fat</td>
-              <td className="content_body">fatContent</td>
-              <td className="content_body">274.4489059026023</td>
-              <td className="content_body">g</td>
-            </tr>
+            {data.map((item) => (
+              <tr>
+                <td className="content_body">{item.label}</td>
+                <td className="content_body">{item.tag}</td>
+                <td className="content_body">{item.schemaOrgTag}</td>
+                <td className="content_body">{item.total}</td>
+                <td className="content_body">{item.unit}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

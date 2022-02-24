@@ -4,12 +4,10 @@ function Healthlabels({ data }) {
   return (
     <div className="ml-2">
       <h4 className="content_header">healthLabels</h4>
-      <div className="d-flex">
-        <span className="badge badge-warning mr-1">Sulfites</span>
-        <span className="badge badge-warning mr-1">Sulfites</span>
-        <span className="badge badge-warning mr-1">Sulfites</span>
-        <span className="badge badge-warning mr-1">Sulfites</span>
-        <span className="badge badge-warning mr-1">Sulfites</span>
+      <div className="d-flex flex-wrap">
+        {data.map((item) => (
+          <span className="badge badge-warning mr-1 my-1">{item}</span>
+        ))}
       </div>
     </div>
   );
