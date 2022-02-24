@@ -1,12 +1,12 @@
 import React from "react";
 
-function Head() {
+function Head({ img, label, url }) {
   return (
     <div className="card">
       <div className="row">
         <div className="col-md-4">
           <img
-            src="https://www.edamam.com/web-img/e12/e12b8c5581226d7639168f41d126f2ff.jpg"
+            src={img}
             alt=""
             style={{ height: "100px", width: "100%" }}
             className="rounded"
@@ -31,7 +31,7 @@ function Head() {
                 marginLeft: "5px",
               }}
             >
-              Chicken Paprikash
+              {label}
             </h5>
           </div>
           <div className="title d-flex align-items-center">
@@ -78,14 +78,43 @@ function Head() {
           </div>
         </div>
         <div className="col-md-1 sharable">
-          <h6>
+          <h6
+            onClick={() => {
+              navigator.clipboard
+                .writeText(`${url}`)
+                .then(() => {
+                  alert("successfully copied");
+                })
+                .catch(() => {
+                  alert("something went wrong");
+                });
+            }}
+          >
             <i className="fa fa-copy" style={{ color: "#563d7c" }}></i>
           </h6>
-          <h6>
+          <h6
+            onClick={() => {
+              if (navigator.share) {
+                navigator
+                  .share({
+                    title: "WebShare API Demo",
+                    url: "https://codepen.io/ayoisaiah/pen/YbNazJ",
+                  })
+                  .then(() => {
+                    alert("Thanks for sharing!");
+                  })
+                  .catch(console.error);
+              } else {
+                alert("browser doesnt support sharing directly");
+              }
+            }}
+          >
             <i className="fa fa-share" style={{ color: "#563d7c" }}></i>
           </h6>
           <h6>
-            <i className="fa fa-link" style={{ color: "#563d7c" }}></i>
+            <a href={url} target="_blank">
+              <i className="fa fa-link" style={{ color: "#563d7c" }}></i>
+            </a>
           </h6>
         </div>
       </div>

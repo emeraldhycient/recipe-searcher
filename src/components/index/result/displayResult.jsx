@@ -5,17 +5,19 @@ import Head from "./head";
 import Healthlabels from "./healthlabels";
 import Ingredients from "./ingredients";
 
-function DisplayResult({ data }) {
+function DisplayResult({ data, key }) {
+  const { image, label, url } = data.recipe;
+
   return (
     <section className="mt-4 card">
       <details>
-        <summary>Chicken Paprikash</summary>
+        <summary>{label}</summary>
         <>
-          <Head />
-          <Healthlabels />
-          <Cautions />
-          <Ingredients />
-          <Digest />
+          <Head img={image} label={label} url={url} />
+          <Healthlabels data="" />
+          <Cautions data="" />
+          <Ingredients data="" />
+          <Digest data="" />
         </>
       </details>
     </section>

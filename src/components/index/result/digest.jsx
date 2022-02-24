@@ -1,6 +1,6 @@
 import React from "react";
 
-function Digest() {
+function Digest({ data }) {
   return (
     <section>
       <div className="table-responsive">

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Ingredients() {
+function Ingredients({ data }) {
   return (
     <div className="ml-2">
       <h4 className="content_header">Ingredients</h4>
